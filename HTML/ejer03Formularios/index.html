@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <header><h1>Formulario HTML</h1></header>
+    <section>
+  <h2>Entradas simples</h2>
+  <form action="respuesta.html" method="get">
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido" name="apellido"><br><br>
+
+    <label for="contrasena">Contraseña:</label>
+    <input type="password" id="contrasena" name="contrasena"><br><br>
+
+    <label for="oculto">Oculto:</label>
+    <input type="hidden" id="oculto" name="oculto" value="valor oculto"><br><br>
+
+    <label for="deshabilitado">Campo deshabilitado:</label>
+    <input type="text" id="deshabilitado" name="deshabilitado" value="valor deshabilitado" disabled><br><br>
+
+    <label for="soloLectura">Campo de solo lectura:</label>
+    <input type="text" id="soloLectura" name="soloLectura" value="valorSoloLectura" readonly><br><br>
+    </section>
+    <section>
+    <h2>Entradas de selección</h2>
+
+    <input type="checkbox" id="deportes" name="deportes">
+    <label for="deportes">Practica deportes</label><br>
+
+    <input type="checkbox" id="musical" name="musical">
+    <label for="musical">Practica musical</label><br>
+
+    <input type="checkbox" id="pintura" name="pintura">
+    <label for="pintura">Practica de pintura artística</label><br><br>
+
+    <label for="sexo">Sexo:</label><br>
+    <input type="radio" id="masculino" name="sexo" value="masculino">
+    <label for="masculino">Masculino</label><br>
+    <input type="radio" id="femenino" name="sexo" value="femenino">
+    <label for="femenino">Femenino</label><br><br>
+
+    <label for="estudios">Estudios cursados:</label><br>
+    <select id="estudios" name="estudios">
+      <option value="primarios">Primarios</option>
+      <option value="secundarios">Secundarios</option>
+      <option value="universitarios">Universitarios</option>
+    </select><br><br>
+
+    <label for="fecha">Fecha y Hora:</label><br>
+    <input type="datetime-local" id="fecha" name="fecha"><br><br>
+
+    <label for="color">Color:</label><br>
+    <input type="color" id="color" name="color"><br><br>
+    </section>
+    <section>
+    <h2>Entradas con validación</h2>
+
+    <label for="comentario">Comentario (requerido):</label><br>
+    <input type="text" id="comentario" name="comentario" required><br><br>
+
+    <label for="email">Email (requerido y formato válido):</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="entero">Número entero limitado (1 a 100):</label><br>
+    <input type="number" id="entero" name="entero" min="1" max="100"><br><br>
+
+    <label for="decimal">Número decimal:</label><br>
+    <input type="number" id="decimal" name="decimal" step="0.01"><br><br>
+
+    <label for="url">URL (requerido, formato http://):</label><br>
+    <input type="url" id="url" name="url" required><br><br>
+
+    <label for="pattern1">Pattern de validación (solo letras):</label><br>
+    <input type="text" id="pattern1" name="pattern1" pattern="[A-Za-z]+"><br><br>
+
+    <label for="telefono">Teléfono (+54) 11 44445555:</label><br>
+    <input type="tel" id="telefono" name="telefono" pattern="\\(\\+54\\)\\s\\d{2}\\s\\d{8}" placeholder="(+54) 11 44445555"><br><br>
+    </section>
+    <input type="submit" value="Enviar">
+    <input type="reset" value="Restablecer">
+  </form>
+</body>
+
+</html>
