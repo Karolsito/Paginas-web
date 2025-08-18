@@ -1,0 +1,18 @@
+h1 {
+  font-size: 2em;
+  color: navy;
+  text-align: center;
+  background-color: seashell;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1em;
+  color: black;
+  font-style: italic;
+  margin-bottom: 40px;
+  border-top: 1px solid green;
+  border-bottom: 1px solid blue;
+  padding: 10px 0;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divs en columnas</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        img{
+            max-width: 100%;
+            max-height: 100%;
+        }
+        div{
+            box-sizing: border-box;
+        }
+        .d1{
+            background-color: rgb(147, 163, 76);
+            width: 85%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .d2, .d3, .d4, .d5, .d6, .d7, .d8, .d9{
+            width: 200px;
+            margin: 8px;
+            float: left;
+            padding: 2%;
+            background-color: cadetblue;
+        }
+        @media (min-width: 900px) and (max-width: 1080px) {
+            .d6 {
+                clear: both;
+                margin-bottom: 15px;
+            }
+            .d2, .d3, .d4, .d5, .d6, .d7, .d8, .d9{
+                background-color: darkolivegreen;
+            }
+        }
+        @media (min-width: 1081px) and (max-width: 1290px) {
+            .d8 {
+                clear: both;
+                margin-bottom: 15px;
+            }
+            .d2, .d3, .d4, .d5, .d6, .d7, .d8, .d9{
+                background-color: lightseagreen;
+            }
+        }
+        @media (min-width: 700px) and (max-width: 899px) {
+            .d5, .d8 {
+                clear: both;
+                margin-bottom: 15px;
+            }
+            .d2, .d3, .d4, .d5, .d6, .d7, .d8, .d9{
+                background-color: greenyellow;
+            }
+        }
+        @media (min-width: 500px) and (max-width: 699px) {
+            .d4, .d6, .d8 {
+                clear: both;
+                margin-bottom: 15px;
+            }
+            .d2, .d3, .d4, .d5, .d6, .d7, .d8, .d9{
+                background-color: gold;
+            }
+        }
+        @media (max-width: 499px) {
+            .d2, .d3, .d4, .d5, .d6, .d7, .d8, .d9{
+                background-color: darkgoldenrod;
+            }
+            .d3, .d4, .d5, .d6, .d7, .d8, .d9{
+                clear: both;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">
+        <h1>Encolumnado sin tabla</h1>
+        <div class="d2">
+            <p>Artículo 1. Este artículo siempre se verá al inicio de la página. Datos. Datos. Datos. Datos. Datos. Datos. Datos. Datos. Datos. Datos. Datos. Datos. Datos. Datos. Datos. Datos. Datos. Datos. Datos. Datos. Datos. Datos. Datos. Datos. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información.</p>
+            <img src="Antiguo-Congreso.jpg" alt="Congreso">
+        </div>
+        <div class="d3"><p>Artículo 2. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje. Mensaje.</p></div>
+        <div class="d4"><p>Artículo 3. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curioso.</p></div>
+        <div class="d5"><p>Artículo 4. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curios1dades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curiosidades. Curioso.</p></div>
+        <div class="d6"><p>Artículo 5. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información. Información.</p></div>
+        <div class="d7"><p>Artículo 6. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data. Data.</p> <img src="Torres.jpg" alt="Torres"></div>
+        <div class="d8"><p>Artículo 7. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Info. Le deseo un feliz año si está leyendo esto. Info. Info. Info. Info. Info.</p></div>
+        <div class="d9"><p>Artículo 8. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin. Fin.</p></div>
+    </div>
+</body>
+</html>

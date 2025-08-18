@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectores de evento</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        img{
+            max-width: 100%;
+            max-height: 100%;
+        }
+        div{
+            box-sizing: border-box;
+        }
+        .d1{
+            background-color: rgb(79, 84, 100);
+            width: 80%;
+            height: 650px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .boton{
+            width: 130px;
+            height: 65px;
+            float: left;
+            padding: 2%;
+            text-align: center;
+            color: blue;
+            background-color: cornflowerblue;
+            margin-bottom: 25px;
+        }
+        .boton:hover{
+            color: black;
+            background-color: yellow;
+        }
+        .boton:active{
+            color: white;
+            background-color: violet;
+        }
+        .imagen{
+            width: 150px;
+            height: 150px;
+            border: 2px solid black;
+            float: left;
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+        .imagen:active{
+            border: 0px;
+            width: 337.5px;
+            height: 337.5px;
+        }
+        label{
+            clear: both;
+            display: block;
+        }
+        input{
+            display: block;
+            width: 180px;
+        }
+        input:focus{
+            background-color: greenyellow;
+            color: darkslategrey;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">
+        <a href="../css02SelectoresDeClase/index.html" target="_blank"><div class="boton"><p>Opción 1</p></div></a>
+        <a href="../css05BackgroundFijo/index.html" target="_blank"><div class="boton"><p>Opción 2</p></div></a>
+        <div class="boton" onclick="window.open('../css09DivsInternosEnColumnas/index.html', '_blank')"><p>Opción 3</p></div>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad">
+
+        <br>
+        <h1>Expandir la imagen con clic izquierdo</h1>
+        <div class="imagen"><img src="../css09DivsInternosEnColumnas/Torres.jpg" alt="Torres"></div>
+        <div class="imagen"><img src="../css02SelectoresDeClase/http2.png" alt="HTTP"></div>
+        <div class="imagen"><img src="../css07DivsEnPila/Planisferio.jpg" alt="Planisferio"></div>
+        <div class="imagen"><img src="../../../HTML/ejer01PreguntasHTTP/http.png" alt="HTTP"></div>
+    </div>
+</body>
+</html>

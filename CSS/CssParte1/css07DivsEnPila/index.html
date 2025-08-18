@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divs en pila</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        @media (min-width: 600px) and (max-width: 1080px) {
+            .d2 {
+                background-color: tomato;
+            }
+        }
+        @media (min-width: 1081px) {
+            .d2 {
+                background-color: forestgreen;
+            }
+        }
+        @media (max-width: 599px) {
+            .d2{
+                background-color: darkgoldenrod;
+            }
+        }
+        div{
+            margin: auto;
+            box-sizing: border-box;
+        }
+        .d1{
+            background-color: aqua;
+            width: 70%;            
+            padding-bottom: 10px;
+        }
+        .d2, .d3, .d4, .d5, .d6{
+            width: 40%;
+            height: 250px;
+            border-radius: 8px;
+            border: 2px solid black;
+            margin-bottom: 20px;
+        }
+        .d2{
+            box-shadow: 16px 8px 2px black;
+            text-align: center;
+        }
+        .d3{
+            background: radial-gradient(circle at center, lightblue, blue, darkblue);
+            text-align: center;
+        }
+        .d4{
+            background: linear-gradient(to right, yellow, orange);
+            text-align: center;
+        }
+        .d5{
+            background: linear-gradient(45deg, green, white, lightgreen);
+            padding: 2%;
+            text-align: left;
+            box-shadow: 16px 8px 2px black;
+        }
+        .d6{
+            background: linear-gradient(135deg, lightgray, gray, beige);
+            text-align: left;
+        }
+        img{
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">
+        <h1>Divisiones en pila</h1>
+        <div class="d2">
+            <p>Fondo color "darkgoldenrod" para dispositivos con resolución baja.<br>Fondo color "tomato" para dispositivos con resolución media.<br>Fondo color "forestgreen" para dispositivos con resolución alta.</p>
+        </div>
+        <div class="d3"><p>Fondo grediente radial.</p></div>
+        <div class="d4"><img src="Planisferio.jpg" alt="Planisferio"></div>
+        <div class="d5"><p>Texto de la división alineado a la izquierda con padding.</p></div>
+        <div class="d6"><p>Texto de la división alineado a la izquierda sin padding.</p></div>
+    </div>
+</body>
+</html>

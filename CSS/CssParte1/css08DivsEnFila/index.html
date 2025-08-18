@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divs en fila</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        img{
+            max-width: 100%;
+            max-height: 100%;
+        }
+        div{
+            box-sizing: border-box;
+        }
+        .d1{
+            background-color: fuchsia;
+            width: 95%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .d2, .d3, .d4, .d5, .d6, .d7{
+            width: 12%;
+            height: 110px;
+            border-radius: 4px;
+            border: 2px solid black;
+            margin: 8px;
+            overflow: auto;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+            overflow-wrap: break-word;
+            float: left;
+        }
+        .d2{
+            text-align: left;
+            background: linear-gradient(180deg, yellow, white, orange);
+            padding: 1%;
+        }
+        .d3{
+            background: radial-gradient(ellipse at center, darkblue, blue, lightblue);
+            text-align: center;
+            padding: 1%;
+        }
+        .d4{
+            background: linear-gradient(to right, gold, aqua);
+            text-align: left;
+        }
+        .d5{
+            background: radial-gradient(circle at center, green, white, lightgreen);
+            text-align: left;
+        }
+        .d6{
+            background: linear-gradient(135deg, lightgray, gray, beige);
+            text-align: right;
+        }
+        .d7{
+            background: radial-gradient(ellipse at left, darkblue, blue, lightblue);
+            text-align: center;
+            padding: 1%;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">
+        <div class="d2">
+            <p>Fondo multicolor gracias a la función linear-gradient().<br>Saludos.</p>
+        </div>
+        <div class="d3"><p>Texto de la división number 2.</p></div>
+        <div class="d4"><img src="../css07DivsEnPila/Planisferio.jpg" alt="Planisferio"></div>
+        <div class="d5"><img src="../../../HTML/ejer01PreguntasHTTP/http.png" alt="HTTP"></div>
+        <div class="d6"><p>Texto en división 5.</p></div>
+        <div class="d7"><p>Texto... en fin.</p></div>
+    </div>
+</body>
+</html>

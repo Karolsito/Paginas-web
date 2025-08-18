@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centrado y padding</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        div{
+            width: 50%;
+            margin: auto;
+        }
+        .estilo1{
+            background-color: brown;
+        }
+        .estilo2{
+            background-color: coral;
+            padding-left: 15%;
+            padding-right: 15%;
+        }
+        .estilo3{
+            background-color: deepskyblue;
+            padding-left: 15%;
+            padding-right: 15%;
+            box-sizing: border-box;
+        }
+        h1{
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        p{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Las siguientes divisiones tienen un ancho del 50% de la ventana</h1>
+    <div class="estilo1">
+        <p>Texto en interior<br>Texto en interior<br>Texto en interior<br>Texto en interior<br>Texto en interior</p>
+    </div>
+    <div class="estilo2">
+        <p>Texto en interior con padding<br>Texto en interior con padding<br>Texto en interior con padding<br>Texto en interior con padding<br>Texto en interior con padding</p>
+    </div>
+    <div class="estilo3">
+        <p>Texto en interior con padding y box-sizing en border-box<br>Texto en interior con padding y box-sizing en border-box<br>Texto en interior con padding y box-sizing en border-box<br>Texto en interior con padding y box-sizing en border-box<br>Texto en interior con padding y box-sizing en border-box</p>
+    </div>
+</body>
+</html>

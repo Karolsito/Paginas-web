@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamaño de fuente</title>
+    <style>
+        *{
+            font-size: 12px;
+        }
+        @media (min-width: 800px) and (max-width: 1080px) {
+            h1{
+                background-color: khaki;
+                font-size: 4em;
+            }
+            p{
+                background-color: khaki;
+                font-size: 2em;
+            }
+        }
+        @media (min-width: 1081px) {
+            h1{
+                background-color: azure;
+                font-size: 6em;
+            }
+            p{
+                background-color: azure;
+                font-size: 3em;
+            }
+        }
+        @media (max-width: 799px) {
+            h1{
+                background-color: cyan;
+                font-size: 2em;
+            }
+            p{
+                background-color: cyan;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tamaño de fuente dependiente de la resolución del viewport</h1>
+    </header>
+    <section>
+        <p>Los textos con etiqueta h1, títulos, tienen el doble de tamaño de letra que los párrafos comunes.</p>
+        <p>El ejercicio tiene definido un tamaño de letra default y luego todo se expresa en unidades de referencia (em).</p>
+        <p>Se está usando el control de medio @media() para modificar el tamaño de letra según el tamaño del viewport.</p>
+        <p>La resolución de pantalla se mide en pixeles de ancho x pixeles de alto.</p>
+        <p>Generalmente, los dispositivos de tamaño pequeño tienen mayor definición: 500ppi (píxeles por pulgada) en celulares modernos.</p>
+        <p>A su vez, los dispositivos de pantalla grande tienen menor definición: alrededor de 100ppi.</p>
+        <p>Por eso, los rangos de resolución son similares tanto en pantallas grandes como pequeñas.</p>
+        <p>Si una pantalla tiene alta resolución en píxeles, las letras pueden tener dimensiones grandes.</p>
+        <p>Entonces, si no se usa el control de medio, conviene definir el tamaño de letra considerando el peor caso (dispositivos de baja resolución).</p>
+        <p>En este ejercicio, la letra se agranda según crece la resolución del dispositivo:</p>
+        <p>12px (1em ya que es el tamaño default) para dispositivos de baja resolución.</p>
+        <p>24px (2em) para dispositivos de media resolución, de 800-1080px.</p>
+        <p>36px (3em) para dispositivos de alta resolución.</p>
+    </section>
+</body>
+</html>
