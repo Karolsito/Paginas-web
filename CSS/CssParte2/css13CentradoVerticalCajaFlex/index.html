@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caja flexible</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .galeria {
+      width: 80%;
+      height: auto;
+      min-height: 100vh;
+      margin: auto;
+      background-color: lime;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    img {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="galeria">
+    <img src="../../CssParte1/css02SelectoresDeClase/http2.png" alt="HTTP">
+    <img src="../../CssParte1/css09DivsInternosEnColumnas/Torres.jpg" alt="Ciudad">
+    <img src="../../../HTML/ejer01PreguntasHTTP/http.png" alt="HTTP">
+  </div>
+</body>
+</html>

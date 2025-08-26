@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divs internos absolutos</title>
+    <style>
+        html, body {
+            margin: 0px;
+            padding: 0;
+            height: 100%;
+            box-sizing: border-box;
+            background-color: black;
+        }
+        img{
+            max-width: 80%;
+            max-height: 80%;
+            float: left;
+            margin-right: 2px;
+        }
+        div{
+            border: 3px solid white;
+            box-sizing: border-box;
+        }
+        .d1{
+            background-color: rebeccapurple;
+            width: 90%;
+            height: 100%;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+        }
+        .d2, .d3, .d4{
+            overflow-y: auto;
+            position: absolute;
+        }
+        .d2{
+            width: 40%;
+            height: 40%;
+            top: 10%;
+            left: 3%;
+            background-color: royalblue;
+            font-size: 1vw;
+        }
+        .d3{
+            width: 60%;
+            height: 40%;
+            top: 20%;
+            left: 30%;
+            padding-left: 10px;
+            z-index: 2;
+            background-color: rosybrown;
+            opacity: 0.6;
+            font-size: 0.5vw;
+        }
+        .d4{
+            width: 37%;
+            height: 39%;
+            right: 6%;
+            top: 50%;
+            padding: 1%;
+            background-color: rgb(150, 96, 200);
+            z-index: 5;
+            font-size: 1vw;
+            transform: rotate(19deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">
+        <h1>Estructura de posicionamiento absoluto</h1>
+        <div class="d2"><h1>Contenedor 1</h1><p>Todos los divs se adaptan al medio.</p></div>
+        <div class="d4"><h1>Contenedor 2</h1><p>Esta división tiene transparencias.<br>Por cierto...<br>Buenos días.<br>O buenas noches.<br>O buenas tardes.</p></div>
+        <div class="d3"><h2>Contenedor 3</h2><img src="../../CssParte1/css07DivsEnPila/Planisferio.jpg" alt="Planisferio 1"><img src="../../CssParte1/css07DivsEnPila/Planisferio.jpg" alt="Planisferio 2"></div>
+    </div>
+</body>
+</html>

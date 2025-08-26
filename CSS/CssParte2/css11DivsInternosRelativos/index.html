@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divs internos relativos</title>
+    <style>
+        html, body {
+            margin: 0px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        img{
+            max-width: 100%;
+            max-height: 100%;
+        }
+        div{
+            box-sizing: border-box;
+        }
+        .d1{
+            background-color: rgb(147, 163, 76);
+            width: 88%;
+            margin-left: 15px;
+            overflow: hidden;
+        }
+        .d2{
+            width: 80%;
+            margin-left: 0%;
+            padding: 2%;
+            margin-bottom: 5px;
+            background-color: cadetblue;
+        }
+        .d3{
+            width: 55%;
+            margin-left: 10%;
+            padding: 3%;
+            margin-top: 10px;
+            background-color: chartreuse;
+        }
+        .d4{
+            width: 40%;
+            height: 200px;
+            margin-left: 40%;
+            padding: 5%;
+            margin-bottom: 7px;
+            background-color: chocolate;
+            overflow-y: auto;
+        }
+        .d5{
+            width: 45%;
+            height: 300px;
+            margin-left: 40%;
+            top: 23%;
+            padding: 1%;
+            text-align: center;
+            background-color: cornflowerblue;
+            position: fixed;
+            z-index: 5;
+            opacity: 0.5;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">
+        <h1>Contenedores relativos</h1>
+        <div class="d2"><p>Contenedor relativo largo</p></div>
+        <div class="d2"><p>Contenedor relativo largo.... otra vez</p></div>
+        <div class="d3"><p>Contenedor relativo alejado</p></div>
+        <div class="d3"><p>Contenedor relativo alejado<br>Contenedor relativo alejado<br>Contenedor relativo alejado<br>Contenedor relativo alejado<br>Contenedor relativo alejado<br>Contenedor relativo alejado<br>Contenedor relativo alejado<br>Contenedor relativo alejado</p></div>
+        <div class="d4"><p>Contenedor relativo scrolleable<br>Contenedor relativo scrolleable<br>Contenedor relativo scrolleable<br>Contenedor relativo scrolleable<br>Contenedor relativo scrolleable<br>Contenedor relativo scrolleable<br>Contenedor relativo scrolleable<br>En fin..</p></div>
+        <div class="d3"><p>Contenedor relativo alejado<br>Contenedor relativo alejado<br>Contenedor relativo alejado<br>El siguiente no tiene texto<br>Contenedor relativo alejado</p></div>
+        <div class="d3"><img src="../../CssParte1/css05BackgroundFijo/lapiz.png" alt="Lápiz"></div>
+        <div class="d5">Contenedor modal<br>Siempre me vas a ver<br>Siempre me vais a ver<br>Siempre me verás<br>A no ser que salgas de la página, jajaja<br>Contenedor modal</div>
+    </div>
+</body>
+</html>
