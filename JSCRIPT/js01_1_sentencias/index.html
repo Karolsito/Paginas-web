@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentencias simples</title>
+</head>
+<body>
+    <h1>Este texto está escrito directamente en HTML</h1>
+    <!--<div id="bloque1"></div>-->
+    <script>
+    alert('Alerta: Este es el primer alert, está escrito en el script del archivo html. Esta ventana es de tipo modal, esto significa que el flujo de escritura se interrumple hasta que haga clic en "Aceptar". El navegador muestra esta alerta antes de interpretar el documento. No se asuste, no lo estamos atacando.');
+
+    document.write("<h2>Texto n°2. Mensaje escrito desde JavaScript utilizando el método write().</h2>");
+    document.write("<p>No pisa el documento porque aún no terminó el flujo de escritura del navegador.<br></p>");
+    /*document.getElementById("bloque1").innerHTML = `
+      <h2>Texto2. Mensaje escrito desde JavaScript utilizando el método innerHTML.</h2>
+      <p>No pisa al documento porque no depende del flujo de carga del navegador.</p>
+    `;
+    */
+    </script>
+    <h1>Texto 4 escrito en HTML escrito después de presentar el último alert</h1>
+    <!--<div id="bloque2"></div>-->
+    <script>
+    alert("¡BU!");
+
+    document.write("<h2>Texto5. Otra escritura con método write() aplicado al documento.</h2>");
+    document.write("<p>El texto escrito con write no pisa el documento porque aún no terminó el tipo de escritura del navegador.</p>");
+    document.write("El flujo de escritura sobre el documento termina un tiempo determinado después de la lectura de la última línea del documento y de haber cerrado todas las ventanas modales de tipo alert().<br>");
+    /*document.getElementById("bloque2").innerHTML = `
+      <h2>Texto5. Otra escritura con método innerHTML aplicado al documento.</h2>
+      <p>El texto no pisa el documento porque se inserta en un contenedor específico.</p>
+      El flujo de escritura sobre el documento termina un tiempo determinado después de la lectura de la última línea del documento y de haber cerrado todas las ventanas modales de tipo alert().<br>
+    `;
+    */
+  </script>
+  <p>El navegador no interpreta igual el flujo de escritura (document.write()), las rutas, ni los permisos cuando no hay un servidor. Puede que la página cargue distinto cuando no se use xampp.</p>
+</body>
+</html>
