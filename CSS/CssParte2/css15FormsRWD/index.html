@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario RWD</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header, footer {
+           background-color: blue;
+           color: white;
+           text-align: center;
+           padding: 10px;
+           position: fixed;
+           width: 100%;
+           z-index: 10;
+        }
+
+        header {
+            top: 0;
+        }
+
+        footer {
+            bottom: 0;
+        }
+
+        main {
+            margin-top: 80px;
+            margin-bottom: 60px;
+            overflow-y: auto;
+            height: calc(100vh - 140px);
+            background-color: #d3d3d3;
+            padding: 10px;
+        }
+
+        form {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .form-box {
+            width: 19%;
+            float: left;
+            border: 1px solid gray;
+            padding: 10px;
+            margin: 0.5%;
+            background-color: #f2f2f2;
+            height: 100px;
+        }
+
+        .botones {
+            clear: both;
+            width: 100%;
+            text-align: center;
+            background-color: #aaa;
+            padding: 10px 0;
+            margin-top: 20px;
+            
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        @media (max-width: 1024px) {
+            .form-box {
+                width: 48%;
+            }
+        }
+        @media (max-width: 600px) {
+            .form-box {
+                width: 98%;
+            }
+
+            button {
+                width: 90%;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Formulario</h2>
+    </header>
+
+    <main>
+        <form action="datos.html" method="get">
+            <div class="form-box">1 Apellido:<br><input type="text" name="apellido"></div>
+            <div class="form-box">2 Nombres:<br><input type="text" name="nombres"></div>
+            <div class="form-box">3 Contraseña:<br><input type="password" name="password"></div>
+            <div class="form-box">4 Campo deshabilitado:<br><input type="text" value="valor deshabilitado" disabled></div>
+            <div class="form-box">5 Fecha:<br><input type="date" name="fecha"></div>
+
+            <div class="form-box">6 DNI:<br><input type="text" name="dni"></div>
+            <div class="form-box">
+                7 <strong>Actividades extracurriculares</strong><br>
+                Música: <input type="checkbox" name="musica"><br>
+                Pintura artística: <input type="checkbox" name="pintura">
+            </div>
+            <div class="form-box">
+                8 Sexo:<br>
+                Masculino: <input type="radio" name="sexo" value="M"><br>
+                Femenino: <input type="radio" name="sexo" value="F">
+            </div>
+            <div class="form-box"><strong>9 Vacío</strong></div>
+            <div class="form-box">10 Estudios cursados:<br>
+                <select name="estudios">
+                    <option>Primarios</option>
+                    <option>Secundarios</option>
+                    <option>Terciarios</option>
+                </select>
+            </div>
+
+            <div class="form-box">11 Área de desempeño:<br>
+                <select name="area">
+                    <option>Administración</option>
+                    <option>Comercial</option>
+                </select>
+            </div>
+            <div class="form-box">12 Turno:<br>
+                <select name="turno">
+                    <option>Mañana</option>
+                    <option>Tarde</option>
+                    <option>Noche</option>
+                </select>
+            </div>
+            <div class="form-box">13 Conduce:<br>
+                <input type="radio" name="conduce" value="si"> SI
+                <input type="radio" name="conduce" value="no"> No
+            </div>
+          
+            <div class="botones">
+                <button type="submit">Enviar</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <p>Hecho por Karol Silva.</p>
+    </footer>
+</body>
+</html>
