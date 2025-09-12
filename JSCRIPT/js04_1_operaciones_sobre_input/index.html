@@ -1,1 +1,60 @@
-  
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operaciones sobre input</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    .container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    button {
+      padding: 5px 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ingresa un número y elige una operación</h1>
+  <div class="container">
+    <input type="number" id="numero">
+    <button id="mostrar">Mostrar valor</button>
+    <button id="sumar">Sumar 1</button>
+    <button id="cuadrado">Elevar al cuadrado</button>
+    <button id="multiplicar">Multiplicar por 2</button>
+    <button id="potencia">Elevar 2 al número</button>
+  </div>
+
+  <script>
+    document.getElementById("mostrar").onclick = function() {
+      const valor = document.getElementById("numero").value;
+      alert(valor);
+    };
+
+    document.getElementById("sumar").onclick = function() {
+      let valor = parseFloat(document.getElementById("numero").value);
+      document.getElementById("numero").value = valor + 1;
+    };
+
+    document.getElementById("cuadrado").onclick = function() {
+      let valor = parseFloat(document.getElementById("numero").value);
+      document.getElementById("numero").value = valor * valor;
+    };
+
+    document.getElementById("multiplicar").onclick = function() {
+      let valor = parseFloat(document.getElementById("numero").value);
+      document.getElementById("numero").value = valor * 2;
+    };
+
+    document.getElementById("potencia").onclick = function() {
+      let valor = parseFloat(document.getElementById("numero").value);
+      document.getElementById("numero").value = Math.pow(2, valor);
+    };
+  </script>
+</body>
+</html>

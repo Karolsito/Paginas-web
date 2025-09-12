@@ -1,1 +1,82 @@
- 
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmación de formulario</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e0f7ff;
+      padding: 40px;
+      text-align: center;
+    }
+    .formulario {
+      background-color: #b0d4f1;
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+    .formulario label {
+      display: inline-block;
+      width: 80px;
+      text-align: right;
+      margin-right: 10px;
+    }
+    .formulario input {
+      margin-bottom: 10px;
+      padding: 5px;
+      width: 150px;
+    }
+    .accion {
+      margin-top: 10px;
+      padding: 8px 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>Confirmación de envío y de reset</h2>
+  <form action="RespuestaFormulario.html" method="get" id="miFormulario" class="formulario">
+    <div>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre">
+    </div>
+    <div>
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido">
+    </div>
+    <button class="accion" id="e">Enviar</button>
+    <button class="accion" id="r">Reset</button>
+  </form>
+
+  <script>
+    document.getElementById("e").onclick = function(event) {
+      event.preventDefault();
+      const nombre = document.getElementById("nombre").value;
+      const apellido = document.getElementById("apellido").value;
+
+      if (!nombre && !apellido) {
+        alert("Por favor completá al menos un campo antes de enviar.");
+        return;
+      }
+
+      const confirmar = confirm("¿Deseás enviar el formulario?");
+      if (confirmar) {
+        alert("Formulario enviado con éxito.");
+        document.getElementById("miFormulario").submit();
+      }
+    };
+
+    document.getElementById("r").onclick = function(event) {
+      event.preventDefault();
+      const confirmar = confirm("¿Deseás borrar los campos?");
+      if (confirmar) {
+        document.getElementById("nombre").value = "";
+        document.getElementById("apellido").value = "";
+      }
+    };
+  </script>
+</body>
+</html>

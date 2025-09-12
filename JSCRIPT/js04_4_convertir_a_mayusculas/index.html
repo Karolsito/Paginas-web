@@ -1,1 +1,59 @@
- 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convertir a mayúsculas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-sizing: border-box;
+      background-color: cadetblue;
+      padding: 20px;
+    }
+    label {
+      display: inline-block;
+      min-width: 100px;
+    }
+    .campo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="campo">
+     <label for="name">Nombre:</label>
+     <input type="text" id="n">
+    </div>
+    <div class="campo">
+     <label for="color">Color favorito:</label>
+     <input type="text" id="n2">
+    </div>
+    <div class="campo">
+     <label for="pais">País:</label>
+     <input type="text" id="n3">
+    </div>
+  </div>  
+  <script>
+    document.getElementById("n").onchange = function() {
+        this.value = this.value.toUpperCase();
+    };
+    document.getElementById("n2").onchange = function() {
+        this.value = this.value.toUpperCase();
+    };
+    document.getElementById("n3").onchange = function() {
+        this.value = this.value.toUpperCase();
+    };
+  </script>
+</body>
+</html>

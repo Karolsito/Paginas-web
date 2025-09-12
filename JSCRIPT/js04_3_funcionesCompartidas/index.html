@@ -1,1 +1,97 @@
-  
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funciones compartidas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      text-align: center;
+    }
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 60px);
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .keypad button, .actions button {
+      padding: 10px;
+      font-size: 18px;
+    }
+    #display {
+      font-size: 24px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      display: inline-block;
+      min-width: 120px;
+      max-width: 100%;
+      margin: 0 auto 20px auto;
+    }
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(2, 160px);
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Simulador de Acumulador</h2>
+
+  <div id="display">0</div>
+
+  <div class="keypad">
+    <button onclick="appendDigit(1)">1</button>
+    <button onclick="appendDigit(2)">2</button>
+    <button onclick="appendDigit(3)">3</button>
+    <button onclick="appendDigit(4)">4</button>
+    <button onclick="appendDigit(5)">5</button>
+    <button onclick="appendDigit(6)">6</button>
+    <button onclick="appendDigit(7)">7</button>
+    <button onclick="appendDigit(8)">8</button>
+    <button onclick="appendDigit(9)">9</button>
+    <button onclick="appendDigit(0)">0</button>
+  </div>
+
+  <div class="actions">
+    <button id="addToAccumulator">Sumar al Acumulador</button>
+    <button id="showAccumulator">Mostrar Acumulador</button>
+    <button id="clearAccumulator">Borrar Acumulador</button>
+    <button id="clearDisplay">Borrar display</button>
+  </div>
+
+  <script>
+    var accumulator = 0;
+
+    function appendDigit(digit) {
+      const display = document.getElementById("display");
+      let current = display.textContent;
+      display.textContent = current === "0" ? String(digit) : current + digit;
+    }
+
+    document.getElementById("addToAccumulator").onclick = function() {
+      const value = parseFloat(document.getElementById("display").textContent);
+      accumulator += value;
+      document.getElementById("display").textContent = "0";
+    };
+
+    document.getElementById("showAccumulator").onclick = function() {
+      document.getElementById("display").textContent = accumulator;
+    };
+
+    document.getElementById("clearAccumulator").onclick = function() {
+      accumulator = 0;
+      document.getElementById("display").textContent = "0";
+    };
+
+    document.getElementById("clearDisplay").onclick = function() {
+      document.getElementById("display").textContent = "0";
+    };
+  </script>
+</body>
+</html>

@@ -1,1 +1,64 @@
-  
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operaciones entre inputs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    .container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 5px 10px;
+      margin: 10px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ingrese los tres números y elija una operación</h1>
+  <div class="container">
+    <label for="numero">1° Numero:</label>
+    <input type="number" id="numero">
+    <label for="numero2">2° Numero:</label>
+    <input type="number" id="numero2">
+    <label for="numero3">3° Numero:</label>
+    <input type="number" id="numero3">
+    <label for="resultado">Resultado:</label>
+    <input type="number" id="resultado">
+  </div>
+    <button id="sumar">Sumar</button>
+    <button id="promedio">Promedio</button>
+    <button id="mayor">Mayor de los números</button>
+
+  <script>
+    document.getElementById("sumar").onclick = function() {
+      let valor = parseFloat(document.getElementById("numero").value);
+      let valor2 = parseFloat(document.getElementById("numero2").value);
+      let valor3 = parseFloat(document.getElementById("numero3").value);
+      document.getElementById("resultado").value = valor + valor2 + valor3;
+    };
+
+    document.getElementById("promedio").onclick = function() {
+      let valor = parseFloat(document.getElementById("numero").value);
+      let valor2 = parseFloat(document.getElementById("numero2").value);
+      let valor3 = parseFloat(document.getElementById("numero3").value);
+      document.getElementById("resultado").value = (valor + valor2 + valor3)/3;
+    };
+
+    document.getElementById("mayor").onclick = function() {
+      let valor = parseFloat(document.getElementById("numero").value);
+      let valor2 = parseFloat(document.getElementById("numero2").value);
+      let valor3 = parseFloat(document.getElementById("numero3").value);
+      document.getElementById("resultado").value = Math.max(valor, valor2, valor3);
+    };
+  </script>
+</body>
+</html>
