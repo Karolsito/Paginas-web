@@ -1,1 +1,65 @@
-  
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comando en evento</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #4CAF50;
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #e0e0e0;
+      border: none;
+      margin: 10px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #c0c0c0;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ejercicio JS02_comando_en_evento.html</h1>
+
+  <button onclick="mostrarFechaHora()">Haz clic para mostrar la fecha y hora</button>
+  <button onclick="mostrarAlerta()">Mostrar alerta</button>
+  <button onclick="escribirConDocumentWrite()">Usar document.write()</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    function mostrarFechaHora() {
+      const ahora = new Date();
+      const fechaHora = ahora.toLocaleString();
+      document.getElementById("resultado").textContent = "Fecha y hora actual: " + fechaHora;
+    }
+    function mostrarAlerta() {
+      alert("¡Hola! Este es un mensaje de alerta.");
+    }
+    function escribirConDocumentWrite() {
+      document.write("<h2>Contenido reemplazado con document.write()</h2><p>Este método borra todo el DOM y escribe directamente en la página.</p>");
+    }
+  </script>
+
+</body>
+</html>

@@ -1,1 +1,68 @@
-  
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alcance de variable global</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: #e0e0e0;
+      border: none;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #c0c0c0;
+    }
+  </style>
+  <script>
+    var varGlob
+  </script>
+</head>
+<body>
+
+  <h1>Asignaremos valor a la variable global desde adentro de una función:</h1>
+
+  <button id="btnDeclaracion">Asignación con declaración (declaración + asignación)</button>
+  <button id="btnForzada">Asignación forzada sin declaración</button>
+  <button id="btnMostrar">Mostrar variable global</button>
+
+  <script>
+    alert("Se ha declarado una variable global, pero no fue asignada: var varGlob.");
+    alert("El valor de varGlob es: " + varGlob);
+    alert("El tipo de varGlob es: " + typeof varGlob);
+
+    
+    document.getElementById("btnDeclaracion").addEventListener("click", function() {
+      var varGlob = prompt("Ingrese un valor para varGlob:");
+      alert("El valor ingresado para varGlob es: " + varGlob);
+      alert("El tipo del valor ingresado para varGlob es: " + typeof varGlob);
+    });
+    document.getElementById("btnForzada").addEventListener("click", function() {
+      varGlob = prompt("Ingrese un valor para varGlob:");
+      alert("El valor ingresado para varGlob es: " + varGlob);
+      alert("El tipo del valor ingresado para varGlob es: " + typeof varGlob);
+    });
+    document.getElementById("btnMostrar").addEventListener("click", function() {
+      alert("Valor actual de varGlob: " + varGlob);
+      alert("El tipo de varGlob es: " + typeof varGlob);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,1 +1,92 @@
-  
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Variables simples  </title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .botonera {
+      margin-bottom: 30px;
+    }
+
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: #e0e0e0;
+      border: none;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #c0c0c0;
+    }
+
+    #resultado {
+      margin: auto;
+      width: 400px;
+      height: 100px;
+      background-color: #cceeff;
+      border: 2px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Variables y tipos en JavaScript</h1>
+
+  <div class="botonera">
+    <button id="btnZ">var z;</button>
+    <button id="btnQ">let q;</button>
+    <button id="btnA">var a=1;</button>
+    <button id="btnB">var b="1";</button>
+    <button id="btnC">var c=2;</button>
+    <button id="btnSuma1">suma1=a+b;</button>
+    <button id="btnSuma2">suma2=a+c;</button>
+  </div>
+
+  <div id="resultado"></div>
+
+  <script>
+    var z = "valor de z";
+    let q;
+    var a = 1;
+    var b = "1";
+    var c = 2;
+    var suma1 = a + b;
+    var suma2 = a + c;
+
+    function mostrar(variable, nombre) {
+      const tipo = typeof variable;
+      document.getElementById("resultado").textContent = `Valor de ${nombre}: ${variable} | Tipo de ${nombre}: ${tipo}`;
+    }
+
+    document.getElementById("btnZ").addEventListener("click", () => mostrar(z, "z"));
+    document.getElementById("btnQ").addEventListener("click", () => mostrar(q, "q"));
+    document.getElementById("btnA").addEventListener("click", () => mostrar(a, "a"));
+    document.getElementById("btnB").addEventListener("click", () => mostrar(b, "b"));
+    document.getElementById("btnC").addEventListener("click", () => mostrar(c, "c"));
+    document.getElementById("btnSuma1").addEventListener("click", () => mostrar(suma1, "suma1"));
+    document.getElementById("btnSuma2").addEventListener("click", () => mostrar(suma2, "suma2"));
+  </script>
+
+</body>
+</html>

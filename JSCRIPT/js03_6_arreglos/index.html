@@ -1,1 +1,51 @@
-  
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arreglos</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 10px;
+    }
+    .info {
+      margin: 15px auto;
+      width: 400px;
+      background-color: #cceeff;
+      border: 2px solid black;
+      padding: 15px;
+      font-size: 16px;
+      color: #000;
+      text-align: left;
+    }
+    h1 {
+      margin-bottom: 30px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Array de índice numérico</h1>
+
+  <div id="tipoArray" class="info"></div>
+  <div id="primerosElementos" class="info"></div>
+  <div id="cantidadElementos" class="info"></div>
+
+  <script>
+    let arregloFrutas = ["manzana", "banana", "pera", "uva", "kiwi"];
+    let nuevaFruta = prompt("Se precargó un arreglo de frutas en la página. Ingrese una nueva fruta para agregar al array:");
+    if (nuevaFruta !== null && nuevaFruta.trim() !== "") {
+      arregloFrutas.push(nuevaFruta.trim());
+    }
+
+    //const tipo = Array.isArray(arregloFrutas) ? "array" : typeof arregloFrutas;
+    document.getElementById("tipoArray").textContent = "Tipo de arregloFrutas: " + typeof arregloFrutas;
+    const primeros = arregloFrutas.slice(0, 5).join(", ");
+    document.getElementById("primerosElementos").textContent = "Primeros 5 elementos: " + primeros;
+    document.getElementById("cantidadElementos").textContent = "Cantidad de elementos en arregloFrutas: " + arregloFrutas.length;
+  </script>
+
+</body>
+</html>
