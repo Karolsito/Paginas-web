@@ -1,1 +1,153 @@
- 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación con keyup</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+        label, input, button {
+            font-size: 1em;
+        }
+        input {
+            padding: 0.5em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 7px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 1em;
+            margin-top: 1em;
+        }
+        button {
+            padding: 0.75em 1.5em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .confirm {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .confirm:hover {
+            background-color: #45a049;
+        }
+        .reset {
+            background-color: black;
+            color: white;
+        }
+        .reset:hover {
+            background-color: #da190b;
+        }
+        .error {
+            color: #f44336;
+            font-size: 0.8em;
+            margin-top: -0.5em;
+            height: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Ingresa tu Cumpleaños</h2>
+        <form id="birthdayForm">
+            <div>
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="day">Día:</label>
+                <input type="number" id="day" name="day" min="1" max="31" required>
+                <p id="dayError" class="error"></p>
+            </div>
+            <div>
+                <label for="month">Mes:</label>
+                <input type="number" id="month" name="month" min="1" max="12" required>
+                <p id="monthError" class="error"></p>
+            </div>
+            <div class="buttons">
+                <button type="button" class="confirm" id="confirmButton">Confirmar</button>
+                <button type="reset" class="reset" id="resetButton">Resetear</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dayInput = document.getElementById('day');
+            const monthInput = document.getElementById('month');
+            const dayError = document.getElementById('dayError');
+            const monthError = document.getElementById('monthError');
+            const confirmButton = document.getElementById('confirmButton');
+            const resetButton = document.getElementById('resetButton');
+            const form = document.getElementById('birthdayForm');
+
+            const validateDay = () => {
+                const day = parseInt(dayInput.value, 10);
+                if (isNaN(day) || day < 1 || day > 31) {
+                    dayError.textContent = 'El día debe ser entre 1 y 31.';
+                    return false;
+                }
+                dayError.textContent = '';
+                return true;
+            };
+
+            const validateMonth = () => {
+                const month = parseInt(monthInput.value, 10);
+                if (isNaN(month) || month < 1 || month > 12) {
+                    monthError.textContent = 'El mes debe ser entre 1 y 12.';
+                    return false;
+                }
+                monthError.textContent = '';
+                return true;
+            };
+
+            dayInput.addEventListener('keyup', validateDay);
+            monthInput.addEventListener('keyup', validateMonth);
+
+            confirmButton.addEventListener('click', () => {
+                const isDayValid = validateDay();
+                const isMonthValid = validateMonth();
+                
+                if (isDayValid && isMonthValid && dayInput.value && monthInput.value) {
+                    const name = document.getElementById('name').value;
+                    const day = dayInput.value;
+                    const month = monthInput.value;
+                    alert(`¡Hola, ${name}! Tu cumpleaños es el ${day}/${month}.`);
+                    form.reset();
+                } else {
+                    alert('Por favor, completa el formulario con valores válidos.');
+                }
+            });
+
+            resetButton.addEventListener('click', () => {
+                dayError.textContent = '';
+                monthError.textContent = '';
+            });
+        });
+    </script>
+
+</body>
+</html>
