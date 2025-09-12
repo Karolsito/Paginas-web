@@ -1,1 +1,144 @@
- 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables objeto dato</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+        .container {
+            flex: 1;
+        }
+        #panel-izquierdo {
+            flex: 1;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 8px;
+        }
+        button {
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .empleado {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .empleado:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de Empleados</h1>
+        <form id="formulario-empleados">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required>
+            
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" required>
+
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" required>
+            
+            <button type="button" id="btn-agregar">Agregar Empleado</button>
+            <button type="button" id="btn-mostrar">Lista de empleados</button>
+            <button type="button" id="btn-alternar">Ocultar/Mostrar Lista</button>
+        </form>
+    </div>
+
+    <div id="panel-izquierdo">
+        <h2>Lista de Empleados</h2>
+        <div id="lista-empleados">
+            </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    let empleados = [];
+
+    const nombreInput = document.getElementById('nombre');
+    const apellidoInput = document.getElementById('apellido');
+    const edadInput = document.getElementById('edad');
+    const btnAgregar = document.getElementById('btn-agregar');
+    const btnMostrar = document.getElementById('btn-mostrar');
+    const btnAlternar = document.getElementById('btn-alternar');
+    const listaEmpleadosDiv = document.getElementById('lista-empleados');
+    const panelIzquierdo = document.getElementById('panel-izquierdo');
+
+    btnAgregar.addEventListener('click', () => {
+        const nombre = nombreInput.value.trim();
+        const apellido = apellidoInput.value.trim();
+        const edad = parseInt(edadInput.value);
+
+        if (nombre === '' || apellido === '' || isNaN(edad) || edad <= 0) {
+            alert('Por favor, completa todos los campos con datos válidos.');
+            return;
+        }
+
+
+        const nuevoEmpleado = {
+            nombre: nombre,
+            apellido: apellido,
+            edad: edad
+        };
+
+        empleados.push(nuevoEmpleado);
+
+        alert('¡Empleado agregado con éxito!');
+        
+        nombreInput.value = '';
+        apellidoInput.value = '';
+        edadInput.value = '';
+    });
+
+    btnMostrar.addEventListener('click', () => {
+        listaEmpleadosDiv.innerHTML = '';
+
+        if (empleados.length === 0) {
+            listaEmpleadosDiv.innerHTML = '<p>No hay empleados registrados.</p>';
+            return;
+        }
+
+        empleados.forEach(empleado => {
+            const empleadoDiv = document.createElement('div');
+            empleadoDiv.classList.add('empleado');
+            empleadoDiv.innerHTML = `
+                <p><strong>Nombre:</strong> ${empleado.nombre} ${empleado.apellido}</p>
+                <p><strong>Edad:</strong> ${empleado.edad}</p>
+            `;
+            listaEmpleadosDiv.appendChild(empleadoDiv);
+        });
+    });
+
+    btnAlternar.addEventListener('click', () => {
+        if (panelIzquierdo.style.display === 'none') {
+            panelIzquierdo.style.display = 'block';
+            btnAlternar.textContent = 'Ocultar Lista';
+        } else {
+            panelIzquierdo.style.display = 'none';
+            btnAlternar.textContent = 'Mostrar Lista';
+        }
+    });
+});
+    </script>
+</body>
+</html>
