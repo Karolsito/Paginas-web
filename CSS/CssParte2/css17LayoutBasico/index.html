@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout básico</title>
+  <style>
+    * {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      box-sizing: border-box;
+    }
+    .cont {
+        height: 100vh;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 15%;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      height: 70%;
+    }
+
+    nav {
+      height: 100%;
+      width: 15%;
+      background-color: #f4f4f4;
+      padding: 20px;
+      box-shadow: inset -1px 0 0 #ccc;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #e0e0e0;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #c0c0c0;
+    }
+
+
+    main {
+      height: 100%;
+      width: 85%;
+      padding: 20px;
+      background-color: #fff;
+    }
+
+    footer {
+      background-color: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      width: 100%;
+      height: 15%;
+    }
+    iframe{
+        width:100%; 
+        height:100%; 
+        border:none;
+    }
+  </style>
+</head>
+<body>
+    <div class="cont">
+
+  <header>
+    <h1>Layout básico</h1>
+  </header>
+
+  <div class="container">
+    <nav>
+        <a href="../../../HTML/index.html" target="visor">HTML</a>
+        <a href="../../index.html" target="visor">CSS</a>
+        <a href="../../../JSCRIPT/index.html" target="visor">JSCRIPT</a>
+    </nav>
+
+    <main>
+        <iframe id="visor" name="visor" src="inicio.html"></iframe>
+    </main>
+
+  </div>
+
+  <footer>
+    <h1>Hecho por Karol Silva</h1>
+  </footer>
+    </div>
+</body>
+</html>

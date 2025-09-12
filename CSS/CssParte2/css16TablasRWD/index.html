@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla RWD</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    header, footer {
+      position: fixed;
+      left: 0;
+      right: 0;
+      background-color: gold;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      z-index: 1000;
+      height: 80px;
+    }
+
+    header {
+      top: 0;
+    }
+
+    footer {
+      bottom: 0;
+    }
+
+    .table-container {
+      margin-top: 80px;
+      margin-bottom: 80px;
+      overflow-y: auto;
+      max-height: calc(100vh - 160px);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: black;
+      color: white;
+    }
+
+    thead {
+      background-color: crimson;
+      position: sticky;
+      top: 0;
+      z-index: 500;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #fff;
+      text-align: left;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #007777;
+    }
+
+    @media (max-width: 768px) {
+      td:nth-child(3), th:nth-child(3) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Tabla RWD</h1>
+</header>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>N°</th>
+        <th>Name</th>
+        <th>Mail</th>
+        <th>Web</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Mengao</td><td>mengao1@gmail.com</td><td>http://fulano.com</td></tr>
+      <tr><td>2</td><td>Mengao</td><td>mengao2@gmail.com</td><td>http://fulano.net</td></tr>
+      <tr><td>3</td><td>Mengao</td><td>mengao3@gmail.com</td><td>http://zutano.com</td></tr>
+      <tr><td>4</td><td>Mengao</td><td>mengao4@gmail.com</td><td>http://zutano.org</td></tr>
+      <tr><td>5</td><td>Mengao</td><td>mengao5@gmail.com</td><td>http://mengano.com</td></tr>
+      <tr><td>6</td><td>Mengao</td><td>mengao6@gmail.com</td><td>http://mengano.net</td></tr>
+      <tr><td>7</td><td>Mengao</td><td>mengao7@gmail.com</td><td>http://mengano.org</td></tr>
+      <tr><td>8</td><td>Mengao</td><td>mengao8@gmail.com</td><td>http://mengano.ar</td></tr>
+      <tr><td>9</td><td>Mengao</td><td>mengao9@gmail.com</td><td>http://mengano.com</td></tr>
+      <tr><td>10</td><td>Mengao</td><td>mengao10@gmail.com</td><td>http://mengano.net</td></tr>
+      <tr><td>11</td><td>Mengao</td><td>mengao11@gmail.com</td><td>http://mengano.org</td></tr>
+      <tr><td>12</td><td>Mengao</td><td>mengao12@gmail.com</td><td>http://mengano.ar</td></tr>
+      <tr><td>13</td><td>Mengao</td><td>mengao13@gmail.com</td><td>http://mengano.com</td></tr>
+      <tr><td>14</td><td>Mengao</td><td>mengao14@gmail.com</td><td>http://mengano.net</td></tr>
+      <tr><td>15</td><td>Mengao</td><td>mengao15@gmail.com</td><td>http://mengano.org</td></tr>
+      <tr><td>16</td><td>Mengao</td><td>mengao16@gmail.com</td><td>http://mengano.ar</td></tr>
+      <tr><td>17</td><td>Mengao</td><td>mengao17@gmail.com</td><td>http://gato.com</td></tr>
+      <tr><td>18</td><td>Mengao</td><td>mengao18@gmail.com</td><td>http://gato.net</td></tr>
+      <tr><td>19</td><td>Mengao</td><td>mengao19@gmail.com</td><td>http://gato.org</td></tr>
+      <tr><td>20</td><td>Mengao</td><td>mengao20@gmail.com</td><td>http://gato.ar</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<footer>
+  <h2>Hecho por Karol Silva.</h2>
+</footer>
+
+</body>
+</html>
