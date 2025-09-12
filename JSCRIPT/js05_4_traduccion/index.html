@@ -1,1 +1,48 @@
- 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-idioma con JS</title>
+</head>
+<body>
+
+    <div id="texto-idioma">
+        <h1>Cargando...</h1>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+    const lang = navigator.language.substring(0, 2);
+
+    const textos = {
+        'es': {
+            titulo: '¡Hola, mundo!',
+            parrafo: 'Esta es una página en español. El texto se muestra porque el idioma del navegador es español.'
+        },
+        'en': {
+            titulo: 'Hello, world!',
+            parrafo: 'This is an English page. The text is displayed because the browser\'s language is English.'
+        },
+        'fr': {
+            titulo: 'Bonjour, le monde !',
+            parrafo: 'Ceci est une page en français. Le texte s\'affiche car la langue du navigateur est le français.'
+        },
+        'default': {
+            titulo: 'Welcome!',
+            parrafo: 'We could not detect your language. Displaying default content.'
+        }
+    };
+
+    const contenedor = document.getElementById('texto-idioma');
+    
+    const contenido = textos[lang] || textos['default'];
+    contenedor.innerHTML = `
+        <h1>${contenido.titulo}</h1>
+        <p>${contenido.parrafo}</p>
+    `;
+});
+    </script>
+
+</body>
+</html>
