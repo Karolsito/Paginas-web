@@ -49,7 +49,6 @@
 <body>
     <div class="container">
         <h1>Registro de Empleados</h1>
-        <form id="formulario-empleados">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" required>
             
@@ -58,11 +57,12 @@
 
             <label for="edad">Edad:</label>
             <input type="number" id="edad" required>
-            
+    </div>
+    <div class="container">
+        <h2>Control</h2>
             <button type="button" id="btn-agregar">Agregar Empleado</button>
             <button type="button" id="btn-mostrar">Lista de empleados</button>
             <button type="button" id="btn-alternar">Ocultar/Mostrar Lista</button>
-        </form>
     </div>
 
     <div id="panel-izquierdo">
@@ -73,7 +73,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-    let empleados = [];
+    let empleados = [{nombre: "Pepe", apellido: "Sosa", edad: 54},{nombre: "María", apellido: "Perez", edad: 30}];
 
     const nombreInput = document.getElementById('nombre');
     const apellidoInput = document.getElementById('apellido');
@@ -109,7 +109,43 @@
         apellidoInput.value = '';
         edadInput.value = '';
     });
+    
+    btnMostrar.addEventListener('click', () => {
+    const listaEmpleadosDiv = document.getElementById('listaEmpleadosDiv');
+    listaEmpleadosDiv.innerHTML = '';
 
+    if (empleados.length === 0) {
+        listaEmpleadosDiv.innerHTML = '<p>No hay empleados registrados.</p>';
+        return;
+    }
+
+    const table = document.createElement('table');
+    table.classList.add('empleados-table');
+
+    const thead = document.createElement('thead');
+    thead.innerHTML = `
+        <tr>
+            <th>Nombre Completo</th>
+            <th>Edad</th>
+        </tr>
+    `;
+    table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+
+    empleados.forEach(empleado => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${empleado.nombre} ${empleado.apellido}</td>
+            <td>${empleado.edad}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+
+    table.appendChild(tbody);
+    listaEmpleadosDiv.appendChild(table);
+  });
+/***
     btnMostrar.addEventListener('click', () => {
         listaEmpleadosDiv.innerHTML = '';
 
@@ -128,7 +164,7 @@
             listaEmpleadosDiv.appendChild(empleadoDiv);
         });
     });
-
+***/
     btnAlternar.addEventListener('click', () => {
         if (panelIzquierdo.style.display === 'none') {
             panelIzquierdo.style.display = 'block';
@@ -142,3 +178,4 @@
     </script>
 </body>
 </html>
+
