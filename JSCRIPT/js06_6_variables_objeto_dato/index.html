@@ -13,6 +13,7 @@
         }
         .container {
             flex: 1;
+            margin-left: 10px;
         }
         #panel-izquierdo {
             flex: 1;
@@ -44,6 +45,9 @@
         .empleado:last-child {
             border-bottom: none;
         }
+        table, tbody, th, td{
+            border: 1px solid black;
+        }
     </style>
 </head>
 <body>
@@ -73,7 +77,10 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-    let empleados = [{nombre: "Pepe", apellido: "Sosa", edad: 54},{nombre: "María", apellido: "Perez", edad: 30}];
+    let empleados = [
+        {nombre: "Pepe", apellido: "Sosa", edad: 54},
+        {nombre: "María", apellido: "Perez", edad: 30}
+    ];
 
     const nombreInput = document.getElementById('nombre');
     const apellidoInput = document.getElementById('apellido');
@@ -111,7 +118,6 @@
     });
     
     btnMostrar.addEventListener('click', () => {
-    const listaEmpleadosDiv = document.getElementById('listaEmpleadosDiv');
     listaEmpleadosDiv.innerHTML = '';
 
     if (empleados.length === 0) {
@@ -178,4 +184,5 @@
     </script>
 </body>
 </html>
+
 
