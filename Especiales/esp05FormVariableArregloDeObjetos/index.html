@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+        h1{
+            font-size: 1.5em;
+        }
+        h2{
+            font-size: 1.1em;
+        }
+        header, footer {
+            background-color: goldenrod;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            z-index: 10;
+        }
+        header {
+            top: 0;
+            height: 12%;
+        }
+        footer {
+            bottom: 0;
+            height: 10%;
+        }
+        label{
+            display: block;
+            margin-left: 15px;
+            margin-bottom: 8px;
+        }
+        input, select{
+            display: block;
+            width: 320px;
+            height: 50px;
+            margin-left: 15px;
+            margin-bottom: 18px;
+            padding: 0.4em 0.5em;
+            font-size: 1rem;
+        }
+        main {
+            overflow-y: auto;
+            height: 78%;
+            width: 100%;
+            background-color: silver;
+            padding: 10px;
+            position: fixed;
+            top: 12%;
+        }
+        form {
+            width: 100%;
+            overflow: hidden;
+        }
+        .form-box {
+            width: 45%;
+            float: left;
+            padding: 10px;
+            margin: 0.5%;
+        }
+        .botones {
+            clear: both;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1rem;
+            width: 33%;
+        }
+        @media (max-width: 795px) {
+            .form-box {
+                width: 98%;
+            }
+            button {
+                width: 90%;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Formulario para Alta</h1>
+        <h2>Recibos de cobranza</h2>
+    </header>
+    <main>
+        <form action="datos.html" method="get">
+            <div class="form-box">
+                <label for="Cod_cli">Cod_cli:</label>
+                <input type="text" name="Cod_cli" required>
+                <label for="Razon_social">Razón social:</label>
+                <input type="text" name="Razon_social" required>
+                <label for="NroDeRecibo">Nro de recibo:</label>
+                <input type="text" name="NroDeRecibo" required>
+            </div>
+            <div class="form-box">
+                <label for="Fecha_cobranza">Fecha de cobranza:</label>
+                <input type="date" name="Fecha_cobranza" required>
+                <label for="Importe_cobranza">Importe de cobranza:</label>
+                <input type="number" name="Importe_cobranza" step="0.01" required>
+                <label for="MedioDePago">Medio de pago:</label>
+                <select name="MedioDePago" id="medios" required></select>
+            </div>
+            <div class="botones">
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <h2>Hecho por Karol Silva.</h2>
+    </footer>
+    <script>
+        let objJson;
+        fetch('./medios.json')
+        .then(response => {
+            if (!response.ok) throw new Error("No se pudo cargar el JSON");
+            return response.text();
+        })
+        .then(textoJson => {
+            objJson = JSON.parse(textoJson);
+            creaOpciones();
+        })
+        .catch(error => console.error("Error al cargar JSON:", error));
+        function creaOpciones() {
+            objJson.MediosDePago.forEach(function(argValor,argIndice) {
+                var objOpcion= document.createElement("option");
+                objOpcion.setAttribute("className","elementoOptionSelect");
+                objOpcion.setAttribute("value",argValor.cod_medio);
+                objOpcion.innerHTML = argValor.Descripcion;
+                document.getElementById("medios").appendChild(objOpcion);
+                });
+            }
+    </script>
+</body>
+</html>

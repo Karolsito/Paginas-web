@@ -1,0 +1,9 @@
+{
+  "MediosDePago": [
+    { "cod_medio": "01", "Descripcion": "Cheque" },
+    { "cod_medio": "02", "Descripcion": "Efectivo" },
+    { "cod_medio": "03", "Descripcion": "Tarjeta de crédito" },
+    { "cod_medio": "04", "Descripcion": "Tarjeta de débito" },
+    { "cod_medio": "05", "Descripcion": "Transferencia" }
+  ]
+}

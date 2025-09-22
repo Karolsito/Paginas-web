@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla y Formulario juntos</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      font-family: sans-serif, Arial;
+    }
+    header, footer {
+      position: fixed;
+      background-color: blue;
+      color: white;
+      z-index: 10;
+      height: 10%;
+      width: 100%;
+    }
+    header {
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px;
+    }
+    footer {
+      padding: 10px;
+      bottom: 0;
+      text-align: center;
+    }
+    .botones {
+      width: 70%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .table-container {
+      position: fixed;
+      top: 10%;
+      overflow-y: auto;
+      height: 80%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: black;
+      color: white;
+      flex: 1;
+    }
+    thead {
+      background-color: chocolate;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      height: 78px;
+    }
+    tfoot {
+      background-color: orange;
+      position: sticky;
+      bottom: 0;
+      z-index: 5;
+      height: 78px;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #fff;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #007777;
+    }
+    .c1{
+      width: 20.5%;
+    }
+    .c2{
+      width: 10.5%;
+    }
+    .c3{
+      width: 18.5%;
+    }
+    .c4{
+      width: 17.5%;
+    }
+    .c5{
+      width: 14.5%;
+    }
+    button {
+      padding: 10px 15px;
+      margin: 2px;
+      width: 25%;
+      height: 55px;
+    }
+    button:hover{
+      color: white;
+      background-color: black;
+    }
+    button:active{
+      color: white;
+      background-color: gray;
+    }
+    .activo {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .pasivo {
+        opacity: 0.3;
+        pointer-events: none;
+    }
+    .modal-content {
+        visibility: hidden;
+        background-color: #fff;
+        margin: 5px auto;
+        padding: 0;
+        border: 1px solid #888;
+        width: 80%;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        position: fixed;
+        top: 10%;
+        left: 10%;
+    }
+    .modal-header {
+        padding: 10px;
+        background-color: orange;
+        color: white;
+        font-weight: bold;
+    }
+    .modal-body iframe {
+        width: 100%;
+        height: 500px;
+        border: none;
+    }
+    .close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        color: white;
+    }
+    .close:hover{
+        color: crimson;
+    }
+    .close:active{
+        color: crimson;
+    }
+    @media (max-width: 768px) {
+      td:nth-child(3), th:nth-child(3) { 
+        display: none;
+      }
+      .c1{
+        width: 23.4%;
+      }
+      .c2{
+        width: 13.4%;
+      }
+      .c3{
+        width: 21.4%;
+      }
+      .c4{
+        width: 20.4%;
+      }
+      .c5{
+        display: none;
+      }
+    }
+    @media (max-width: 550px) {
+      td:nth-child(1), th:nth-child(1) { 
+        display: none;
+      }
+      .c1{
+        width: 26.75%;
+      }
+      .c3{
+        width: 24.75%;
+      }
+      .c4{
+        width: 23.75%;
+      }
+      .c2{
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="activo" id="contenedor">
+  <header>
+    <h2>Recibos de Cobranza</h2>
+    <div class="botones">
+      <button id="cargar">Cargar datos</button>
+      <button id="vaciar">Vaciar datos</button>
+      <button id="form">Cargar form</button>
+    </div>
+  </header>
+  <div class="table-container">
+    <table>
+        <colgroup>
+            <col class="c2">
+            <col class="c1">
+            <col class="c5">
+            <col class="c3">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+      <thead>
+        <tr>
+          <th>Cod_cli</th>
+          <th>Razón social</th>
+          <th>Nro de Recibo</th>
+          <th>Fecha de cobranza</th>
+          <th>Importe de cobranza</th>
+          <th>Medio de pago</th>
+        </tr>
+      </thead>
+      <tbody id="datos"></tbody>
+      <tfoot>
+        <tr>
+          <th>S. Cod_cli</th>
+          <th>S. Razón social</th>
+          <th>S. Nro de Recibo</th>
+          <th>S. Fecha de cobranza</th>
+          <th>S. Importe de cobranza</th>
+          <th>S. Medio de pago</th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <footer>
+    <h2>Hecho por Karol Silva.</h2>
+  </footer>
+  </div>
+  <div class="modal-content" id="miModal">
+    <div class="modal-header">
+        <p>Formulario para ALTA</p>
+        <span class="close" id="cerrarModal">&times;</span>
+    </div>
+    <div class="modal-body">
+        <iframe src="../esp05FormVariableArregloDeObjetos/index.html"></iframe>
+    </div>
+  </div>
+  <script>
+    document.getElementById("form").onclick = function() {
+        document.getElementById("miModal").style.visibility = "visible";
+        document.getElementById("contenedor").className="pasivo"
+    };
+    document.getElementById("cerrarModal").onclick = function() {
+        document.getElementById("miModal").style.visibility = "hidden";
+        document.getElementById("contenedor").className="activo"
+    };
+    var datosTbody = `{
+    "RecibosDeCobranza":[
+        {"Cod_cli":"00123","Razon_social":"Distribuidora El Sol S.A.","NroDeRecibo":"RC-2025-0001","Fecha_cobranza":"2025-09-16","Importe_cobranza":125000.50,"MedioDePago":"Transferencia"},
+        {"Cod_cli":"00124","Razon_social":"Ferretería El Tornillo","NroDeRecibo":"RC-2025-0002","Fecha_cobranza":"2025-09-17","Importe_cobranza":85000.00,"MedioDePago":"Efectivo"},
+        {"Cod_cli":"00125","Razon_social":"Panadería La Espiga","NroDeRecibo":"RC-2025-0003","Fecha_cobranza":"2025-09-18","Importe_cobranza":45200.75,"MedioDePago":"Cheque"},
+        {"Cod_cli":"00126","Razon_social":"Supermercado Don José","NroDeRecibo":"RC-2025-0004","Fecha_cobranza":"2025-09-19","Importe_cobranza":98000.00,"MedioDePago":"Tarjeta de débito"},
+        {"Cod_cli":"00127","Razon_social":"Librería Central","NroDeRecibo":"RC-2025-0005","Fecha_cobranza":"2025-09-20","Importe_cobranza":31500.00,"MedioDePago":"Transferencia"},
+        {"Cod_cli":"00128","Razon_social":"Carnicería El Buen Corte","NroDeRecibo":"RC-2025-0006","Fecha_cobranza":"2025-09-21","Importe_cobranza":67500.00,"MedioDePago":"Efectivo"},
+        {"Cod_cli":"00129","Razon_social":"Farmacia Vida Sana","NroDeRecibo":"RC-2025-0007","Fecha_cobranza":"2025-09-22","Importe_cobranza":102300.00,"MedioDePago":"Tarjeta de crédito"},
+        {"Cod_cli":"00130","Razon_social":"Papelería El Rincón","NroDeRecibo":"RC-2025-0008","Fecha_cobranza":"2025-09-23","Importe_cobranza":28750.00,"MedioDePago":"Cheque"},
+        {"Cod_cli":"00131","Razon_social":"Electro Hogar S.R.L.","NroDeRecibo":"RC-2025-0009","Fecha_cobranza":"2025-09-24","Importe_cobranza":150000.00,"MedioDePago":"Transferencia"},
+        {"Cod_cli":"00132","Razon_social":"Verdulería El Tomate","NroDeRecibo":"RC-2025-0010","Fecha_cobranza":"2025-09-25","Importe_cobranza":39500.00,"MedioDePago":"Tarjeta de débito"},
+        {"Cod_cli":"00133","Razon_social":"Juguetería Mundo Feliz","NroDeRecibo":"RC-2025-0011","Fecha_cobranza":"2025-09-26","Importe_cobranza":76500.00,"MedioDePago":"Tarjeta de crédito"},
+        {"Cod_cli":"00134","Razon_social":"Heladería La Nieve","NroDeRecibo":"RC-2025-0012","Fecha_cobranza":"2025-09-27","Importe_cobranza":58900.00,"MedioDePago":"Efectivo"},
+        {"Cod_cli":"00135","Razon_social":"Tienda El Ropero","NroDeRecibo":"RC-2025-0013",  "Fecha_cobranza":"2025-09-28","Importe_cobranza":112750.00,"MedioDePago":"Tarjeta de débito"}
+    ]}`;
+    const objJson = JSON.parse(datosTbody);
+    document.getElementById("cargar").onclick = function() {
+        if (document.getElementById("datos").children.length === 0) {
+            objJson.RecibosDeCobranza.forEach(function(argValor,argIndice) {
+                var objTr= document.createElement("tr");
+                var objTd=document.createElement("td");
+                objTd.setAttribute("campo-dato","Cod_cli");
+                objTd.innerHTML=argValor.Cod_cli;
+                objTr.appendChild(objTd);
+                var objTd=document.createElement("td");
+                objTd.setAttribute("campo-dato","Razon_social");
+                objTd.innerHTML=argValor.Razon_social;
+                objTr.appendChild(objTd);
+                var objTd=document.createElement("td");
+                objTd.setAttribute("campo-dato","NroDeRecibo");
+                objTd.innerHTML=argValor.NroDeRecibo;
+                objTr.appendChild(objTd);
+                var objTd=document.createElement("td");
+                objTd.setAttribute("campo-dato","Fecha_cobranza");
+                objTd.innerHTML=new Date(argValor.Fecha_cobranza).toLocaleDateString("es-AR", {day: "2-digit", month: "2-digit", year: "numeric"});
+                objTr.appendChild(objTd);
+                var objTd=document.createElement("td");
+                objTd.setAttribute("campo-dato","Importe_cobranza");
+                objTd.innerHTML=argValor.Importe_cobranza.toLocaleString('es-AR', {minimumFractionDigits: 2,  maximumFractionDigits: 2});
+                objTr.appendChild(objTd);
+                var objTd=document.createElement("td");
+                objTd.setAttribute("campo-dato","MedioDePago");
+                objTd.innerHTML=argValor.MedioDePago;
+                objTr.appendChild(objTd);
+                document.getElementById("datos").appendChild(objTr);
+            });
+        }
+    }
+    document.getElementById("vaciar").onclick = function() {
+        document.getElementById("datos").innerHTML = "";
+    }
+  </script>
+</body>
+</html>
